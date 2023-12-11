@@ -36,12 +36,36 @@
 
 					<!-- Content -->
 						<section>
+							<h2>Mapping the Above ground biomass using EO data</h2>
+							<div class="row">
+								<div class="col-6 col-12-small">		
+									<p style="text-align:justify">Mapping Above Ground Biomass (AGB) with Earth Observation (EO) data involves utilizing advanced remote sensing techniques
+										 to assess and quantify the amount of biomass present in a given area. <br><br>
+										  
+										🌳🛰️ The script developed here utilizes Earth Observation (EO) data, incorporating GEDI L4B, Sentinel-1, Sentinel-2, Copernicus elevation, 
+										and ESA World Cover datasets. Its purpose is to model the density of Above Ground Biomass (AGB) in a forested region of Portugal, 
+										specifically within the Municipality of Sines. <br> <br>
+
+										🌲💻 The script utilizes the power of the Random Forest (RF) classifier to predict AGB density, considering various factors like polarization
+										 data, slope, elevation, and cloud-filtered Sentinel II images. <br> <br>
+
+										🚀🌐 This model provides insights into the dynamics of forest structure and AGB, contributing to our understanding of ecological health and 
+										sustainability. </p>
+									<ul class="actions"><li><a href="https://github.com/PrasadiSenadeera/VegetationStatusMapping/blob/main/Above%20Ground%20Biomass.ipynb" class="button">Script</a></li></ul>
+								</div>
+								<div class="col-6 col-12-small">
+								<video width="640" height="360" controls>
+									<source src="video/AGB.mp4" type="video/mp4">Your browser does not support the video tag.
+								</video>
+								</div>
+							</div>
+
 							<h2>Vegetation status mapping</h2>
 								<div class="row">
 									<div class="col-6 col-12-small">		
 										<p style="text-align:justify">Mapping vegetation status via remote sensing indices has emerged as a vital tool in environmental monitoring,
 											offering crucial insights and precautionary measures. This script was designed to map the vegetation status in the Municipality of Selmes (The script allows 
-											users to easily customize the study area by assigning the municipality name as a variable),a well known agricultural site in Portugal.
+											users to easily customize the study area by assigning the municipality name as a variable), a well known agricultural site in Portugal.
 											The indices utilized in this mapping include,
 											<ol>
 												<li>NDVI, EVI, and kNDVI for assessing vegetation greenness and vigor.</li>
