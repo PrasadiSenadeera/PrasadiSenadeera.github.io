@@ -103,18 +103,24 @@
 
 	<!-- Sidebar include -->
 	<script>
-	fetch("sidebar.html")
-	  .then(response => {
-		if (!response.ok) {
-		  throw new Error("Sidebar file not found");
-		}
-		return response.text();
-	  })
-	  .then(data => {
-		document.getElementById("sidebar").innerHTML = data;
-	  })
-	  .catch(error => console.error("Error loading sidebar:", error));
-	</script>
+  fetch("sidebar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("sidebar").innerHTML = data;
+
+      // Reinitialize menu toggling (required for HTML5UP "Editorial" template)
+      const openers = document.querySelectorAll('#menu .opener');
+      openers.forEach(opener => {
+        opener.addEventListener('click', function(event) {
+          event.preventDefault();
+          const parent = this.parentElement;
+          parent.classList.toggle('active');
+        });
+      });
+    })
+    .catch(err => console.error("Sidebar failed to load:", err));
+</script>
+
 
 </body>
 </html>
