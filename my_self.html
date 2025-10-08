@@ -103,23 +103,30 @@
 
 	<!-- Sidebar include -->
 	<script>
-  fetch("sidebar.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("sidebar").innerHTML = data;
+	fetch("sidebar.html")
+	.then(response => response.text())
+	.then(data => {
+		document.getElementById("sidebar").innerHTML = data;
+		const openers = document.querySelectorAll('#sidebar .opener');
+		openers.forEach(opener => {
+		opener.addEventListener('click', function(event) {
+			event.preventDefault();
+			this.parentElement.classList.toggle('active');
+			openers.forEach(other => {
+			if (other !== this) other.parentElement.classList.remove('active');
+			});
+		});
+		});
+		const submenuLinks = document.querySelectorAll('#sidebar ul ul a');
+		submenuLinks.forEach(link => {
+		link.addEventListener('click', function(e) {
+			window.location.href = this.getAttribute('href');
+		});
+		});
+	})
+	.catch(err => console.error("Sidebar failed to load:", err));
+	</script>
 
-      // Reinitialize menu toggling (required for HTML5UP "Editorial" template)
-      const openers = document.querySelectorAll('#menu .opener');
-      openers.forEach(opener => {
-        opener.addEventListener('click', function(event) {
-          event.preventDefault();
-          const parent = this.parentElement;
-          parent.classList.toggle('active');
-        });
-      });
-    })
-    .catch(err => console.error("Sidebar failed to load:", err));
-</script>
 
 
 </body>
